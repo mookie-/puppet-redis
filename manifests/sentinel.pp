@@ -203,7 +203,7 @@ class redis::sentinel (
     contain 'redis'
   }
 
-  if $package_name != $redis::package_name {
+  if $standalone or ($package_name != $redis::package_name) {
     ensure_packages([$package_name], {
         ensure => $package_ensure
     })
